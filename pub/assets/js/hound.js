@@ -272,7 +272,8 @@ var Model = {
 
   UrlToRepo: function(repo, path, line) {
     var info = this.repos[repo],
-        url = info.url.replace(/\.git$/, ''),
+        url = info.url.replace(/\.git$/, '')
+                      .replace(/^git@github.com:/, 'https://www.github.com/'),
         anc = line ? '#L' + line : '';
     return url + '/blob/master/' + path + anc;
   }
